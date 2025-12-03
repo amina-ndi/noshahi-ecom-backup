@@ -533,13 +533,14 @@
         }
 
         /* ===== CONTENT AREA ===== */
-.content{
+  .content{
     flex:1;
     background:#fff;
-    margin-left:20px;
+    margin-left:0;
     padding:25px;
     border:1px solid #ddd;
 }
+
 
 .title{
     text-align:center;
@@ -1130,12 +1131,128 @@
             font-size: 11px;
         }
 
-        /* --- Main Content Styling --- */
         .main-content {
-            flex-grow: 1;
-            border: 1px solid blue;
-            margin-left: 26px;
-        }
+    flex-grow: 1;
+    padding: 25px;
+    background: #fff;
+    border: 1px solid #ddd; /* optional */
+    margin-left: 0; /* remove hard-coded margin */
+    min-width: 0; /* important for flex items to shrink properly */
+}
+@media (max-width: 767px) {
+    .profile-container {
+        flex-direction: column;
+        margin-left: 0 !important;
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .profile-container {
+        flex-direction: row;
+        margin-left: 0;
+    }
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .main-content {
+        margin-left: 10px;
+        flex-grow: 1;
+    }
+}
+
+
+        /* ======================= FINAL MOBILE RESPONSIVE FIX ======================= */
+@media (max-width: 768px) {
+
+    /* Whole layout column ho jaye */
+    .profile-container {
+        flex-direction: column !important;
+        width: 100% !important;
+        display: flex !important;
+    }
+
+    /* Sidebar full width */
+    .sidebar {
+        width: 100% !important;
+        min-width: 100% !important;
+        padding: 15px !important;
+        display: block !important;
+    }
+
+    /* Sidebar headings + links visible (text wrap) */
+    .sidebar h2,
+    .sidebar h3,
+    .sidebar a {
+        white-space: normal !important;
+        word-break: break-word !important;
+        font-size: 16px !important;
+    }
+
+    /* Sidebar menu UL full width */
+    .menu-section ul li a {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px;
+        width: 100% !important;
+    }
+
+    /* MAIN CONTENT full width */
+    .content {
+        margin: 0 !important;
+        padding: 15px !important;
+        width: 100% !important;
+    }
+
+    /* Wallet box full width */
+    .wallet-box {
+        width: 100% !important;
+        padding: 15px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    /* Wallet stats items full width */
+    .wallet-stats {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+    .wallet-stats div {
+        width: 100% !important;
+        padding: 10px !important;
+    }
+
+    /* Wallet history table fix */
+    .wallet-history table {
+        width: 100% !important;
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+    }
+
+    /* Prevent horizontal scroll */
+    body,
+    html {
+        overflow-x: hidden !important;
+    }
+}
+
     </style>
 </head>
 
